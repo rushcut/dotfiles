@@ -18,6 +18,10 @@ alias ll='ls -lG'
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
 
+# Emacs
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+alias ea='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
 # Nicer history
 export HISTSIZE=100000
 export HISTFILE="$HOME/.history"
