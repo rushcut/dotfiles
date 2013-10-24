@@ -20,6 +20,22 @@ export GREP_OPTIONS="--color"
 
 # Emacs
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+alias eq='/Applications/Emacs.app/Contents/MacOS/Emacs -nw -q -l ~/.emacs.d/init-quick.el -nw'
+
+if which ruby &> /dev/null; then
+  if [ "$OS_TYPE" = "Darwin" ]; then
+    alias rm="$HOME/bin/rm.rb"
+  else
+    alias rm="rm.rb -I"
+  fi
+fi
+
+##################################################
+# Command Edit
+export VISUAL='/Applications/Emacs.app/Contents/MacOS/Emacs -nw -q -l ~/.emacs.d/init-quick.el'
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
 
 function fg() {
     if [ `ps -ef | grep "/Applications/Emacs.app" | grep -v "grep" | wc -l` -ge 1 ]; then
@@ -142,6 +158,7 @@ function up()
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
 
 # Initialize RVM
 PATH=$PATH:$HOME/.rvm/bin
