@@ -123,3 +123,5 @@
 /.local
 /.ido.last
 /.slate.coffee
+/.smex-items
+/.coffee_history
