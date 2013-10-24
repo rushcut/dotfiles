@@ -120,3 +120,5 @@
 /var
 /work
 /tmp
+/.local
+/.ido.last
