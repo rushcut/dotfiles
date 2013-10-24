@@ -20,7 +20,24 @@ export GREP_OPTIONS="--color"
 
 # Emacs
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-alias ea='/Applications/Emacs.app/Contents/MacOS/Emacs'
+
+function fg() {
+    if [ `ps -ef | grep "/Applications/Emacs.app" | grep -v "grep" | wc -l` -ge 1 ]; then
+        osascript -e 'tell application "Emacs" to activate'
+    else
+        builtin fg
+    fi
+}
+
+function ea() {
+    if [ `ps -ef | grep "/Applications/Emacs.app" | grep -v "grep" | wc -l` -ge 1 ]; then
+        echo "Emacs.app already running, It will be activate.\nIf you want to open another one, You can run 'eaf' command."
+        osascript -e 'tell application "Emacs" to activate'
+    else
+        /Applications/Emacs.app/Contents/MacOS/Emacs &
+    fi
+}
+
 
 # Nicer history
 export HISTSIZE=100000
@@ -129,4 +146,3 @@ export PATH="/usr/local/heroku/bin:$PATH"
 # Initialize RVM
 PATH=$PATH:$HOME/.rvm/bin
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
