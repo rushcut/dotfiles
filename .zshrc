@@ -1,3 +1,5 @@
+export LANG=ko_KR.UTF-8
+
 # Set custom prompt
 setopt PROMPT_SUBST
 autoload -U promptinit
@@ -19,8 +21,7 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export GREP_OPTIONS="--color"
 
 # Emacs
-alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-alias eq='/Applications/Emacs.app/Contents/MacOS/Emacs -nw -q -l ~/.emacs.d/init-quick.el -nw'
+alias eq='emacs -q -l ~/.emacs.d/init-quick.el'
 
 if which ruby &> /dev/null; then
   if [ "$OS_TYPE" = "Darwin" ]; then
@@ -30,6 +31,9 @@ if which ruby &> /dev/null; then
   fi
 fi
 
+# Move Directory
+alias code='cd ~/code'
+
 ##################################################
 # Command Edit
 export VISUAL='/Applications/Emacs.app/Contents/MacOS/Emacs -nw -q -l ~/.emacs.d/init-quick.el'
@@ -38,7 +42,7 @@ zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
 function fg() {
-    if [ `ps -ef | grep "/Applications/Emacs.app" | grep -v "grep" | wc -l` -ge 1 ]; then
+    if [ `ps -ef | grep "/Applications/Emacs.app" | grep -v "grep" | grep -v "\-nw" |wc -l` -ge 1 ]; then
         osascript -e 'tell application "Emacs" to activate'
     else
         builtin fg
@@ -46,7 +50,7 @@ function fg() {
 }
 
 function ea() {
-    if [ `ps -ef | grep "/Applications/Emacs.app" | grep -v "grep" | wc -l` -ge 1 ]; then
+    if [ `ps -ef | grep "/Applications/Emacs.app" | grep -v "grep" | grep -v "\-nw" |wc -l` -ge 1 ]; then
         echo "Emacs.app already running, It will be activate.\nIf you want to open another one, You can run 'eaf' command."
         osascript -e 'tell application "Emacs" to activate'
     else
