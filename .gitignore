@@ -122,7 +122,6 @@
 /tmp
 /.local
 /.ido.last
-/.slate.coffee
 /.smex-items
 /.coffee_history
 /.pry_history
@@ -131,3 +130,6 @@
 /code
 /projects
 /production
+/Backups
+/.rediscli_history
+/slate.js
