@@ -134,3 +134,21 @@
 /.rediscli_history
 /slate.js
 /.subversion
+/.vim
+/Applications
+/.berkshelf
+/Google Drive
+/.bundler
+/.m2
+/.config
+/.live-packs
+/.chef
+/.vagrant
+/.vagrant.d
+/.thor
+/.lein
+/.adobe
+/.putty
+/VirtualBox VMs
+/.VirtualBox VMs
+/emacs-live-old-config
